@@ -1,0 +1,30 @@
+public class dsinterface {
+    public static void main(String[] args) {
+        GreetingImpl myGreeting = new GreetingImpl();
+        myGreeting.greet();         // Outputs "Custom Greeting"
+        myGreeting.defaultGreet(); // Outputs "Default Greeting"
+        Greeting.staticGreet();    // Outputs "Static Greeting"
+    }
+}
+// Define an interface with default and static methods
+interface Greeting {
+    void greet(); // Abstract method
+
+    default void defaultGreet() {
+        System.out.println("Default Greeting");
+    }
+
+    static void staticGreet() {
+        System.out.println("Static Greeting");
+    }
+}
+
+// Implement the interface in a class
+class GreetingImpl implements Greeting {
+    @Override
+    public void greet() {
+        System.out.println("Custom Greeting");
+    }
+}
+
+// Usage of the class
